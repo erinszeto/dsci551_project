@@ -140,28 +140,10 @@ def search():
 
     return render_template('search.html')
 
-
-## cve_id,keyword,start_date,end_date,start_score,end_score
-
-# @app.route('/search-results')
-# def search_results():
-#     # formdata = session.get('formdata')
-#     queries = session.get('queries')
-#     page_no = int(request.args.get('page',1))
-#     results_per_page = 10
-#     offset = (page_no-1)*results_per_page
-
-#     data = get_data(queries,offset,results_per_page)
-
-#     return render_template('index.html',posts=data)
-
 @app.route('/search-results')
 def search_results():
     page, per_page, offset = get_page_args()
     queries = session.get('queries')
-#    page_no = int(request.args.get('page',1))
-#    results_per_page = 10
-#    offset = (page_no-1)*results_per_page
 
     data,total_records = get_data(queries,offset,per_page)
     cves = data[offset:offset+per_page]
