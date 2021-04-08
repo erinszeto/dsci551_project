@@ -1,0 +1,19 @@
+<html>
+    <body>
+      <form action = "http://localhost:5000/form" method = "post">
+        <p>Keyword(s):</p>
+        <p><input type = "text" name = "keyword" /></p>
+        <p>Published Date Range:</p>
+        <p><input type = "date" id="startdate" name = "startdate" min = "2019-01-01" max = "2021-02-01">
+            <input type = "date" id="enddate" name = "enddate" min = "2019-01-01" max = "2021-02-01"></p>
+        <p>Severity Score Range:</p>
+        <p><input type="number" id="startscore" name="startscore" min=0 max=10>
+            <input type="number" id="startscore" name="startscore" min=0 max=10></p>
+        <p><input type = "submit" value = "Search"/></p>
+    </form>
+    </body>
+</html>
+
+<!---
+<input type="number" id="quantity" name="quantity" min="1" max="5">
+->

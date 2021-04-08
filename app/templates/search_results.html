@@ -1,0 +1,21 @@
+{{ pagination.info }}
+{{ pagination.links }}
+<table>
+  <thead>
+    <tr>
+      <th>CVE ID</th>
+      <th>Description</th>
+      <th>Published Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cve in cves %}
+      <tr>
+        <td>{{ cve.id }}</td>
+        <td>{{ cve.description }}</td>
+        <td>{{ cve.published_date }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{{ pagination.links }}
