@@ -1,1 +1,2 @@
-# dsci551_project
+# DSCI551 Project
+Spring 2021
