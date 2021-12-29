@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
+    <h1>{% block title %} Exploring Vulnerabilities in Software: CVE Search Tool {% endblock %}</h1>
+    <p></p>
     {% for post in posts %}
         <a href="{{ url_for('post', cve_id=post['id']) }}">
             <h2>{{ post['id'] }}</h2>

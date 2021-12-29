@@ -2,6 +2,51 @@
 
 {% block content %}
     <h2>{% block title %} {{ post['id'] }} {% endblock %}</h2>
-    <span class="badge badge-primary">{{ post['published_date'] }}</span>
+    <p></p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% if post["base_severity"] != None %}
+                <strong>CVSS 3.x Base Score:</strong> {{ base_score }} {{ post["base_severity"]}}<br>
+                <strong>Attack Vector:</strong> {{ post["attack_vector"]}}
+                {% else %}
+                <strong>CVSS 3.x Base Score:</strong> N/A<br>
+                <strong>Attack Vector:</strong> N/A
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <strong>Published Date</strong><br>
+                {{ post["published_date"]}}<br>
+                <strong>Last Modified Date</strong><br>
+                {{ post["lastmodified_date"]}}
+            </div>
+        </div>
+        <div class="row mt-3"></div>
+        <h5>Description</h5>
+        <div class="row">
+            <div class="col">
+                {{ post["description"]}}
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">References</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ref in references %}
+            <tr>
+              <td><a href={{ ref }}>{{ ref }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+
+<!--   <span class="badge badge-primary">{{ post['published_date'] }}</span>
     <p>{{ post['description'] }}</p>
+--> 
 {% endblock %}

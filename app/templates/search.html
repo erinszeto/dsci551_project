@@ -2,28 +2,32 @@
 
 {% block content %}
 <h1>{% block title %} Search for CVE {% endblock %}</h1>
-
+<p></p>
 <form method="post">
-    <div class="form-group">
-        <p>
+    <div class="form-row">
+        <p><div class="form-group col-md-5">
             <label for="cve_id">CVE ID</label><br>
-            <input type = "text" name = "cve_id" /><br>
-            </p>
-        <p>
+            <input type = "text" name = "cve_id" placeholder="CVE-2021-28035"/><br>
+        </div></p>
+        <p><div class="form-group col-md-5">
             <label for="keyword">Keyword</label><br>
-            <input type = "text" name = "keyword" /><br>
-        </p>
+            <input type = "text" name = "keyword" placeholder="Enter keyword"/><br>
+        </div></div></p>
+        <div class="form-row">
         <p>
+            <div class="form-group col-md-5">
             <label for="date">Published Date Range</label><br>
-            <input type = "date" id="start_date" name = "start_date" min = "2019-01-01" max = "2021-02-01">
-            <input type = "date" id="end_date" name = "end_date" min = "2019-01-01" max = "2021-02-01"><br>
+            <input type = "date" id="start_date" name = "start_date" min = "2019-01-01" max = "2021-03-05">
+            <input type = "date" id="end_date" name = "end_date" min = "2019-01-01" max = "2021-03-05">
+            <br>
+        </div>
         </p>
-        <p>
+        <p><div class="form-group col-md-5">
             <label for="score">Severity Score Range</label><br>
-            <input type="number" id="start_score" name="start_score" min=0 max=10>
-            <input type="number" id="end_score" name="end_score" min=0 max=10><br>
-        </p>
-    </div>
+            <input type="number" id="start_score" name="start_score" min=0 max=10 placeholder=0>
+            <input type="number" id="end_score" name="end_score" min=0 max=10 placeholder=10><br>
+        </div></p>
+        </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

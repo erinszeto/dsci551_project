@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Search Results {% endblock %}</h1>
+<p></p>
+
+<div class="container">
+  <div class="row">
+      <div class="col">
+        {{ pagination.info }}
+        {{ pagination.links }}
+      </div>
+      <div class="col"><div class="float-right">
+        <strong>Average Base Severity Score:</strong> {{ stats.avg_score }} <br>
+        <strong>Min Base Severity Score:</strong> {{ stats.min_score }} <br>
+        <strong>Max Base Severity Score:</strong> {{ stats.max_score }}
+      </div>
+      </div>
+  </div>
+</div>
+<!---
+{{ pagination.info }}
+{{ pagination.links }}
+<p>{{ stats.min_score }}</p>
+-->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" style="width: 15%">CVE ID</th>
+        <th scope="col" style="width: 65%">Description</th>
+        <th scope="col">Published Date</th>
+        <th scope="col">Base Severity Score</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for cve in cves %}
+        <tr>
+          <th scope="row"><a href="{{ url_for('post', cve_id=cve.id) }}">{{ cve.id }}</a></th>
+          <td class="text"><span>{{ cve.description }}</span></td>
+          <td>{{ cve.published_date }}</td>
+          {% if cve.base_severity != None %}
+          <td>{{ cve.base_score }}</td>
+          {% else %} 
+          <td>N/A</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{{ pagination.links }}
+{% endblock %}
