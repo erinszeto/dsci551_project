@@ -1,4 +1,3 @@
 # Exploring Vulnerabilities in Software
 DSCI 551 - Spring 2021
-
-By Erin Szeto
+Erin Szeto
